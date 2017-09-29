@@ -1,0 +1,26 @@
+<div class="container pad-top">
+	<div>
+  		<a ui-sref="newTodo" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-plus-sign"></i> Add Todo</a>
+	  	<div class="pull-right">
+	  		<select class="form-control" ng-model="filterByStatus">
+	  			<option value="" selected="selected">ALL</option>
+		  		<option value="NEW">NEW</option>
+		       	<option value="WIP">WIP</option>
+		       	<option value="COMPLETED">COMPLETED</option>
+		  	</select>
+	  	</div>
+  	</div>
+  	<table class="table table-striped todotable">
+      	<tr ng-repeat="todo in todos | filter: {condition: filterByStatus}">
+          	<td>{{todo.name}}</td>
+          	<td>{{todo.condition}}</td>
+          	<td>
+              	<a class="btn btn-primary" ui-sref="viewTodo({id:todo.id})" title="View"><i class="glyphicon glyphicon-eye-open"></i></a>
+              	<a class="btn btn-danger" ng-click="deleteTodo(todo)" title="Delete"><i class="glyphicon glyphicon-remove-circle"></i></a>
+          	</td>
+      	</tr>
+  	</table>
+  	<div ng-show="todos.length === 0">
+  		Nothing to show here!
+  	</div>
+</div>

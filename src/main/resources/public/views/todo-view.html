@@ -1,0 +1,20 @@
+<div class="container pad-top">
+  	<h3>Details for {{todo.name}}</h3>
+  	<table class="table todotable table-striped">
+    	<tr>
+        	<td>Name</td>
+          	<td>{{todo.name}}</td>
+      	</tr>
+      	<tr>
+          	<td>Description</td>
+          	<td>{{todo.description}}</td>
+      	</tr>
+	    <tr>
+          	<td>Status</td>
+          	<td>{{todo.condition}}</td>
+      	</tr>
+  	</table>
+  	<div>
+      	<a class="btn btn-primary" ui-sref="editTodo({id:todo.id})">Edit</a>
+  	</div>
+</div>
